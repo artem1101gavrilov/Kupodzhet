@@ -5,16 +5,21 @@ using UnityEngine;
 public class Button : MonoBehaviour {
     public GameObject TextCount;
     public GameObject TextCost;
+    public static int NumberInTable;
+
+    public void Start()
+    {
+        NumberInTable = 3;
+    }
 
     public void EnterButton()
     {
         //Принимаем значения с текстовых полей
         int Count = int.Parse(TextCount.GetComponent<UnityEngine.UI.InputField>().text);
-        int Cost = TextCost.GetComponent<UnityEngine.UI.InputField>().text != "" ? int.Parse(TextCost.GetComponent<UnityEngine.UI.InputField>().text) : 0;
-        Debug.Log(Count);
+        double Cost = TextCost.GetComponent<UnityEngine.UI.InputField>().text != "" ? double.Parse(TextCost.GetComponent<UnityEngine.UI.InputField>().text) : 0;
         Debug.Log(Cost);
 
-        if(Count > 0 && Cost > 0)
+        if (Count > 0 && Cost > 0)
         {
             //тут будет функция ввода в БД
 
